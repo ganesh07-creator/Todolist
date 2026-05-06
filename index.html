@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    Todolist
+  </title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+
+  <p class="title">
+    Todo list
+  </p>
+  <form>
+    <div class="content">
+      <div class="todo-input-grid">
+        <input placeholder="Todo name" class="js-name-input name-input" required>
+        <input type="date" class="js-due-date due-date-input" required>
+        <button type="submit" onclick=" addtodo();
+      
+      " class="add-todo-button">
+          Add
+        </button>
+      </div>
+    </div>
+  </form>
+  <div class="names">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <td>TODO NAME</td>
+          <td>DUE DATE</td>
+          <td>REMOVE</td>
+        </tr>
+      </thead>
+      <tbody class="js-todo-list"></tbody>
+    </table>
+  </div>
+
+
+
+
+
+  <div class="js-todo-list todo-grid">
+
+
+
+  </div>
+
+  </div>
+  <script src="scripts/script.js"></script>
+</body>
+
+</html>

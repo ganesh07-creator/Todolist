@@ -1,0 +1,129 @@
+body {
+  font-family: Arial;
+  background: linear-gradient(135deg, beige, #f5f5dc);
+  transition: background 0.3s;
+}
+
+/* Title animation */
+.title {
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.title:hover {
+  transform: scale(1.05);
+  color: darkgreen;
+}
+
+/* Inputs */
+.name-input,
+.due-date-input {
+  font-size: 15px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.name-input:focus,
+.due-date-input:focus {
+  outline: none;
+  border-color: green;
+  box-shadow: 0 0 6px rgba(0, 128, 0, 0.4);
+}
+
+/* Add button */
+.add-todo-button {
+  background: linear-gradient(135deg, green, darkgreen);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  width: 120px;
+  height: 34px;
+  margin-left: 34px;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  margin-bottom: 30px;
+}
+
+.add-todo-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+
+}
+
+.add-todo-button:active {
+  transform: scale(0.95);
+  background: bisque;
+  color: green;
+}
+
+/* Table styling */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  transition: background-color 0.2s;
+}
+
+/* Row hover effect */
+tr:hover td {
+  background-color: #f0fff0;
+}
+
+/* Delete button */
+.buttonin {
+  margin: 10px 30px 20px;
+  cursor: pointer;
+  padding: 10px;
+  background: linear-gradient(135deg, orangered, crimson);
+  border: none;
+  font-family: Arial;
+  color: white;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+}
+
+.buttonin:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.buttonin:active {
+  transform: scale(0.9);
+  background-color: rgb(31, 15, 137);
+  color: cornsilk;
+}
+
+/* Table cells */
+.todoname,
+.todo-name {
+  text-align: center;
+  width: 185px;
+  word-wrap: break-word;
+}
+
+.duedate,
+.due-date,
+.removebut {
+  text-align: center;
+  width: 150px;
+}
+
+/* Layout */
+.content,
+.todo-input-grid,
+.names {
+  display: grid;
+  justify-content: center;
+  gap: 10px;
+}
