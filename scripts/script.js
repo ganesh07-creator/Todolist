@@ -10,6 +10,14 @@ function rendertodolist() {
       <tr>
         <td class="todoname">${name}</td>
         <td class="duedate">${duedate}</td>
+
+        <td>
+          <button class="edit-button"
+            onclick="edittodo(${i})">
+            Edit
+          </button>
+        </td>
+
         <td class="remove">
           <button class="buttonin"
             onclick="todolist.splice(${i},1); rendertodolist();">
@@ -38,4 +46,24 @@ function addtodo() {
   dateinputelement.value = "";
 
   rendertodolist();
+}
+
+function edittodo(index) {
+
+  const newname = prompt(
+    'Edit todo name:',
+    todolist[index].name
+  );
+
+  const newdate = prompt(
+    'Edit due date:',
+    todolist[index].duedate
+  );
+
+  if (newname && newdate) {
+    todolist[index].name = newname;
+    todolist[index].duedate = newdate;
+
+    rendertodolist();
+  }
 }
