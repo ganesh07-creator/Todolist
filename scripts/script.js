@@ -1,4 +1,6 @@
-const todolist = [];
+const todolist = JSON.parse(localStorage.getItem('todolist')) || [];
+
+rendertodolist();
 
 function rendertodolist() {
   let todolistHTML = '';
@@ -20,7 +22,7 @@ function rendertodolist() {
 
         <td class="remove">
           <button class="buttonin"
-            onclick="todolist.splice(${i},1); rendertodolist();">
+            onclick="deletetodo(${i})">
             Delete
           </button>
         </td>
@@ -31,19 +33,42 @@ function rendertodolist() {
   document.querySelector('.js-todo-list').innerHTML = todolistHTML;
 }
 
+function savetolocalstorage() {
+  localStorage.setItem(
+    'todolist',
+    JSON.stringify(todolist)
+  );
+}
+
 function addtodo() {
-  const inputelement = document.querySelector('.js-name-input');
-  const dateinputelement = document.querySelector('.js-due-date');
+  const inputelement =
+    document.querySelector('.js-name-input');
+
+  const dateinputelement =
+    document.querySelector('.js-due-date');
 
   const name = inputelement.value;
   const duedate = dateinputelement.value;
 
   if (!name || !duedate) return;
 
-  todolist.push({ name, duedate });
+  todolist.push({
+    name,
+    duedate
+  });
 
-  inputelement.value = "";
-  dateinputelement.value = "";
+  savetolocalstorage();
+
+  inputelement.value = '';
+  dateinputelement.value = '';
+
+  rendertodolist();
+}
+
+function deletetodo(index) {
+  todolist.splice(index, 1);
+
+  savetolocalstorage();
 
   rendertodolist();
 }
@@ -61,8 +86,11 @@ function edittodo(index) {
   );
 
   if (newname && newdate) {
+
     todolist[index].name = newname;
     todolist[index].duedate = newdate;
+
+    savetolocalstorage();
 
     rendertodolist();
   }
